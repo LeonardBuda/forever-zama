@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Checkout - Forever Mavi{% endblock %}
+{% block meta_description %}Complete your purchase at Forever Mavi{% endblock %}
+{% block meta_keywords %}Forever Mavi, checkout, order, payment{% endblock %}
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <a href="{{ url_for('view_cart') }}" class="text-blue-600 hover:underline mb-4 inline-block" aria-label="Back to cart">Back ⬅️</a>
+    <h1 class="text-3xl font-bold text-center mb-6">Checkout 🛒💖</h1>
+    <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl font-semibold mb-4">Order Summary 🌟</h2>
+        {% if cart_items %}
+            <div class="border rounded-lg p-4 shadow-md mb-6">
+                {% for item in cart_items %}
+                    <p class="mb-2">{{ item.name }} - {% if 'quantity' in item %}R{{ item.amount|floatformat(2) }} x {{ item.quantity }} = R{{ item.total|floatformat(2) }}{% else %}R{{ item.amount|floatformat(2) }}{% endif %} 🌺</p>
+                {% endfor %}
+                <p class="text-lg font-bold text-green-600">Total: R{{ total|floatformat(2) }} 💸</p>
+            </div>
+        {% else %}
+            <p class="text-center mb-6">Cart is empty! 😞</p>
+        {% endif %}
+        <h2 class="text-2xl font-semibold mb-4">Customer Details 📝</h2>
+        <form action="{{ url_for('checkout') }}" method="POST" class="max-w-md mx-auto">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700">Name* ✍️</label>
+                <input type="text" name="name" id="name" value="{{ remembered_customer.name if remembered_customer.name else '' }}" required class="w-full p-2 border rounded" aria-label="Your name">
+            </div>
+            <div class="mb-4">
+                <label for="surname" class="block text-gray-700">Surname 🌟</label>
+                <input type="text" name="surname" id="surname" value="{{ remembered_customer.surname if remembered_customer.surname else '' }}" class="w-full p-2 border rounded" aria-label="Your surname">
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="block text-gray-700">Phone* 📞</label>
+                <input type="tel" name="phone" id="phone" value="{{ remembered_customer.phone if remembered_customer.phone else '' }}" required class="w-full p-2 border rounded" aria-label="Your phone number">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700">Email* 📧</label>
+                <input type="email" name="email" id="email" value="{{ remembered_customer.email if remembered_customer.email else '' }}" required class="w-full p-2 border rounded" aria-label="Your email address">
+            </div>
+            <div class="mb-4">
+                <label for="special_note" class="block text-gray-700">Special Note 📝</label>
+                <textarea name="special_note" id="special_note" class="w-full p-2 border rounded" rows="4" aria-label="Special note"></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="payment_method" class="block text-gray-700">Payment Method* 💳</label>
+                <select name="payment_method" id="payment_method" required class="w-full p-2 border rounded" aria-label="Select payment method">
+                    <option value="" disabled selected>Select payment method 🌟</option>
+                    <option value="EFT">EFT (coming soon) 🚧</option>
+                    <option value="E-wallet">E-wallet 💳</option>
+                    <option value="Cash send">Cash send 💵</option>
+                    <option value="In-App">In-App (coming soon) 🚧</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="remember" class="flex items-center">
+                    <input type="checkbox" name="remember" id="remember" {{ 'checked' if remembered_customer.remembered else '' }} class="mr-2" aria-label="Remember my details">
+                    <span>Remember me 🌟</span>
+                </label>
+            </div>
+            <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full" aria-label="Place order">Place Order 🚀</button>
+        </form>
+        <a href="{{ url_for('view_cart') }}" class="text-blue-600 hover:underline mt-4 inline-block text-center w-full" aria-label="Back to cart">Back ⬅️</a>
+    </div>
+</div>
+<script>
+    document.querySelector('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const response = await fetch('{{ url_for('checkout') }}', {
+            method: 'POST',
+            body: new FormData(e.target)
+        });
+        const data = await response.json();
+        if (data.popup) {
+            alert(data.message || data.error);
+        }
+        if (response.ok && data.redirect) {
+            window.location.href = data.redirect;
+        }
+    });
+</script>
+{% endblock %}

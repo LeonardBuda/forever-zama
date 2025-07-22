@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Specialty Supplements - Forever Mavi{% endblock %}
+{% block meta_description %}Explore specialty supplements at Forever Mavi{% endblock %}
+{% block meta_keywords %}Forever Mavi, specialty supplements, joint health, cardiovascular{% endblock %}
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <a href="{{ url_for('menus') }}" target="_blank" class="text-blue-600 hover:underline mb-4 inline-block" aria-label="Back to menus">Back ⬅️</a>
+    <h1 class="text-3xl font-bold text-center mb-6">Specialty Supplements 💊🌟</h1>
+    <h2 class="text-2xl font-semibold text-center mb-4">Products 🌿</h2>
+    <form class="mb-6 flex space-x-4" aria-label="Filter and sort supplements">
+        <select name="sort" class="p-2 border rounded" aria-label="Sort supplements">
+            <option value="name" {% if request.args.get('sort') == 'name' %}selected{% endif %}>Sort by Name</option>
+            <option value="price" {% if request.args.get('sort') == 'price' %}selected{% endif %}>Sort by Price</option>
+        </select>
+        <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" aria-label="Apply sorting">Sort 🔍</button>
+    </form>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {% for item in menu.Products %}
+            <div class="border rounded-lg p-4 shadow-md">
+                {% set image_name = item.name | lower | replace(' ', '_') | replace(':', '_') %}
+                <img src="/static/images/products/{{ image_name }}.jpg" alt="{{ item.name }}" loading="lazy" class="w-full h-48 object-cover mb-4">
+                <h3 class="text-xl font-semibold">{{ item.name }} - R{{ item.price|floatformat(2) }}</h3>
+                <p>
+                    {% if item.name == "Forever Calcium" %}Calcium for bone strength.{% endif %}
+                    {% if item.name == "Cardio Health" %}Supports cardiovascular health.{% endif %}
+                    {% if item.name == "Active HA" %}Hyaluronic acid for joints.{% endif %}
+                    {% if item.name == "ARGI+" %}L-arginine for circulation.{% endif %}
+                    {% if item.name == "Forever Move" %}Joint mobility support.{% endif %}
+                </p>
+                <form action="{{ url_for('add_to_cart') }}" method="POST" class="mt-4">
+                    <input type="hidden" name="name" value="{{ item.name }}">
+                    <input type="number" name="quantity" value="1" min="1" class="p-2 border rounded w-20" aria-label="Quantity for {{ item.name }}">
+                    <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-700 mt-2" aria-label="Add {{ item.name }} to cart">Add to Cart 🛒</button>
+                </form>
+                <a href="https://api.whatsapp.com/send?text=Check out {{ item.name }} at Forever Mavi! {{ url_for('health_wellness', _external=True) }}" target="_blank" class="text-green-600 hover:underline mt-2 inline-block" aria-label="Share {{ item.name }} on WhatsApp">Share on WhatsApp 📱</a>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('menus') }}" target="_blank" class="text-blue-600 hover:underline mt-4 inline-block" aria-label="Back to menus">Back ⬅️</a>
+</div>
+{% endblock %}

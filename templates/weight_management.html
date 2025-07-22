@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Weight Management - Forever Mavi{% endblock %}
+{% block meta_description %}Discover weight management products at Forever Mavi{% endblock %}
+{% block meta_keywords %}Forever Mavi, weight management, detox, weight loss{% endblock %}
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <a href="{{ url_for('menus') }}" class="text-blue-600 hover:underline mb-4 inline-block" aria-label="Back to menus">Back to Menus ⬅️</a>
+    <h1 class="text-3xl font-bold text-center mb-6">Weight Management ⚖️🌟</h1>
+    <h2 class="text-2xl font-semibold mb-4">Products 🍵✨</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {% for item in menu.Products %}
+            <div class="border rounded-lg p-4 shadow-md">
+                {% set image_name = item.name | lower | replace(' ', '_') | replace(':', '_') %}
+                <img src="/static/images/products/{{ image_name }}.jpg" alt="{{ item.name }}" loading="lazy" class="w-full h-48 object-cover mb-4">
+                <h3 class="text-lg font-semibold">{{ item.name }} 🌸</h3>
+                <p class="text-lg font-bold text-green-600">R{{ item.price | floatformat(2) }} 💸</p>
+                <p>{{ item.description }}</p>
+                <form action="{{ url_for('add_to_cart') }}" method="POST" class="mt-4">
+                    <input type="hidden" name="name" value="{{ item.name }}">
+                    <input type="number" name="quantity" value="1" min="1" class="p-2 border rounded w-20" aria-label="Quantity for {{ item.name }}">
+                    <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" aria-label="Add {{ item.name }} to cart">Add to Cart 🛒</button>
+                </form>
+                <a href="https://api.whatsapp.com/send?text=Check out {{ item.name }} at Forever Mavi! {{ url_for('weight_management', _external=True) }}" target="_blank" class="text-green-600 hover:underline mt-2 inline-block" aria-label="Share {{ item.name }} on WhatsApp">Share on WhatsApp 📱</a>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('menus') }}" class="text-blue-600 hover:underline mt-4 inline-block" aria-label="Back to menus">Back to Menus ⬅️</a>
+</div>
+<script>
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: new FormData(form)
+            });
+            const data = await response.json();
+            if (data.popup) {
+                alert(data.message || data.error);
+            }
+            if (response.ok && data.refresh) {
+                window.location.reload();
+            }
+        });
+    });
+</script>
+{% endblock %}

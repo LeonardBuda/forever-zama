@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Server Error - Forever Mavi{% endblock %}
+{% block meta_description %}Server error at Forever Mavi{% endblock %}
+{% block meta_keywords %}Forever Mavi, 500, error{% endblock %}
+{% block content %}
+<div class="container mx-auto px-4 py-8 text-center">
+    <h1 class="text-3xl font-bold mb-4">Something Went Wrong! 🚫</h1>
+    <p class="mb-4">We’re sorry, there was a server error. Please try again later.</p>
+    <a href="{{ url_for('home') }}" class="text-blue-600 hover:underline" aria-label="Back to home">Back to Home 🏠</a>
+</div>
+{% endblock %}

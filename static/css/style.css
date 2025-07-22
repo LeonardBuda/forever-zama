@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #2e7d32;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.navbar {
+    background-color: #ffca28;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+.navbar img {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 50px;
+}
+.navbar a {
+    color: #2e7d32;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+.navbar a:hover {
+    color: #fff;
+}
+.content {
+    padding: 20px;
+    flex: 1 0 auto;
+}
+.footer {
+    background-color: #ffca28;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    flex-shrink: 0;
+}
+.footer .contact-info {
+    margin-bottom: 10px;
+}
+.footer .social-links {
+    margin-top: 10px;
+}
+.order-summary, .customer-details {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.menu-list li {
+    display: inline;
+    margin-right: 20px;
+}
+.menu-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.menu-items li:nth-child(odd) {
+    background-color: #e0f7fa;
+}
+.menu-items li:nth-child(even) {
+    background-color: #fff;
+}
+.menu-items .item-name {
+    flex-grow: 1;
+    text-align: left;
+}
+.menu-items .details {
+    flex-grow: 2;
+    text-align: left;
+    padding-left: 10px;
+    vertical-align: middle;
+}
+.social-btn {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #d81b60;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.social-btn:hover {
+    background-color: #ad1457;
+}
+.join-btn {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.join-btn:hover {
+    background-color: #1b5e20;
+}
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+@media (max-width: 600px) {
+    .navbar a { font-size: 14px; margin: 0 10px; }
+    .navbar img { max-width: 40px; }
+    .content { padding: 10px; }
+    .order-summary, .customer-details { padding: 10px; }
+    .menu-items li { flex-direction: column; text-align: center; }
+    .menu-items .item-name { margin-bottom: 5px; }
+    .menu-items .details { margin-top: 5px; }
+    .footer .contact-info, .footer .social-links { margin: 5px 0; }
+}

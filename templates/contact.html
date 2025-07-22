@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Contact - Forever Mavi{% endblock %}
+{% block meta_description %}Contact Mavi Dlamini for inquiries about Forever Mavi products{% endblock %}
+{% block meta_keywords %}Forever Mavi, contact, support, inquiries{% endblock %}
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <a href="{{ url_for('home') }}" class="text-blue-600 hover:underline mb-4 inline-block" aria-label="Back to home">Back ⬅️</a>
+    <h1 class="text-3xl font-bold text-center mb-6">Contact Us 📞🌟</h1>
+    <p class="text-center mb-6">Get in touch with Mavi Dlamini! 💖🚀</p>
+    <h2 class="text-2xl font-semibold mb-4 text-center">Contact Form 📝</h2>
+    <form action="{{ url_for('contact') }}" method="POST" class="max-w-md mx-auto">
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700">Name*</label>
+            <input type="text" name="name" id="name" required class="w-full p-2 border rounded" aria-label="Your name">
+        </div>
+        <div class="mb-4">
+            <label for="phone" class="block text-gray-700">Phone*</label>
+            <input type="tel" name="phone" id="phone" required class="w-full p-2 border rounded" aria-label="Your phone number">
+        </div>
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700">Email*</label>
+            <input type="email" name="email" id="email" required class="w-full p-2 border rounded" aria-label="Your email address">
+        </div>
+        <div class="mb-4">
+            <label for="message" class="block text-gray-700">Message*</label>
+            <textarea name="message" id="message" required class="w-full p-2 border rounded" rows="5" aria-label="Your message"></textarea>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full" aria-label="Send contact message">Send Message 🚀🌺</button>
+    </form>
+    <a href="{{ url_for('home') }}" class="text-blue-600 hover:underline mt-4 inline-block text-center w-full" aria-label="Back to home">Back ⬅️</a>
+</div>
+<script>
+    document.querySelector('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const response = await fetch('{{ url_for('contact') }}', {
+            method: 'POST',
+            body: new FormData(e.target)
+        });
+        const data = await response.json();
+        if (data.popup) {
+            alert(data.message || data.error);
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Search Results - Forever Mavi{% endblock %}
+{% block meta_description %}Search results for products at Forever Mavi{% endblock %}
+{% block meta_keywords %}Forever Mavi, search, products, health, wellness{% endblock %}
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center mb-6">Search Results for "{{ query }}" 🔍</h1>
+    {% if results %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {% for item in results %}
+                <div class="border rounded-lg p-4 shadow-md">
+                    {% set image_name = item.name | lower | replace(' ', '_') | replace(':', '_') %}
+                    {% set image_name = image_name ~ '.jpeg' if item.name == 'Stroke Recovery Pack' else image_name ~ '.jpg' %}
+                    <img src="/static/images/products/{{ image_name }}" alt="{{ item.name }}" loading="lazy" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-semibold">{{ item.name }} {% if item.category == 'Join Options' %}- {{ item.type }}{% endif %} 🌸</h3>
+                    <p class="text-lg font-bold text-green-600">R{{ item.price | floatformat(2) }} 💸</p>
+                    <p>{{ item.description }}</p>
+                    <form action="{{ url_for('add_to_cart') }}" method="POST" class="mt-4">
+                        <input type="hidden" name="name" value="{{ item.name }}">
+                        <input type="number" name="quantity" value="1" min="1" class="p-2 border rounded w-20" aria-label="Quantity for {{ item.name }}">
+                        <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-700 mt-2" aria-label="Add {{ item.name }} to cart">Add to Cart 🛒</button>
+                    </form>
+                    <a href="https://api.whatsapp.com/send?text=Check out {{ item.name }} at Forever Mavi! {{ url_for('search', q=query, _external=True) }}" target="_blank" class="text-green-600 hover:underline mt-2 inline-block" aria-label="Share {{ item.name }} on WhatsApp">Share on WhatsApp 📱</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center">No results found 😞</p>
+    {% endif %}
+    <a href="{{ url_for('menus') }}" target="_blank" class="text-blue-600 hover:underline mt-4 inline-block" aria-label="Back to menus">Back to Menus ⬅️</a>
+</div>
+{% endblock %}

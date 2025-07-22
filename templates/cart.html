@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Your Cart - Forever Mavi{% endblock %}
+{% block meta_description %}View and manage your cart at Forever Mavi{% endblock %}
+{% block meta_keywords %}Forever Mavi, cart, shopping, checkout{% endblock %}
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <a href="{{ url_for('products') }}" class="text-blue-600 hover:underline mb-4 inline-block" aria-label="Back to products">Back⬅️</a>
+    <h1 class="text-3xl font-bold text-center mb-6">Your Cart 🛒🌟</h1>
+    <div class="max-w-3xl mx-auto">
+        {% if cart_items %}
+            <div class="border rounded-lg p-4 shadow-md">
+                {% for item in cart_items %}
+                    <div class="flex justify-between items-center mb-4">
+                        <p>{{ item.name }} - {% if 'quantity' in item %}R{{ item.amount|floatformat(2) }} x {{ item.quantity }} = R{{ item.total|floatformat(2) }} 💸{% else %}R{{ item.amount|floatformat(2) }} 💰{% endif %}</p>
+                        <form action="{{ url_for('remove_from_cart') }}" method="POST" class="inline">
+                            <input type="hidden" name="name" value="{{ item.name }}">
+                            <button type="submit" class="text-red-600 hover:text-red-800" aria-label="Remove {{ item.name }} from cart">Remove 🗑️</button>
+                        </form>
+                    </div>
+                {% endfor %}
+                <p class="text-lg font-bold text-green-600">Total: R{{ total|floatformat(2) }} 💰🎊</p>
+            </div>
+            <div class="mt-4 flex space-x-4 justify-center">
+                <a href="{{ url_for('checkout') }}" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700" aria-label="Proceed to checkout">Checkout ✅</a>
+                <form action="{{ url_for('clear_cart') }}" method="POST" class="inline">
+                    <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700" aria-label="Clear cart">Clear Cart 🗑️</button>
+                </form>
+                <a href="{{ url_for('products') }}" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" aria-label="Add more items">Add Items ➕</a>
+            </div>
+        {% else %}
+            <p class="text-center">Cart is empty 😞🌸</p>
+            <div class="mt-4 text-center">
+                <a href="{{ url_for('products') }}" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" aria-label="Add items to cart">Add Items ➕</a>
+            </div>
+        {% endif %}
+        <a href="{{ url_for('products') }}" class="text-blue-600 hover:underline mt-4 inline-block" aria-label="Back to products">Back ⬅️</a>
+    </div>
+</div>
+<script>
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: new FormData(form)
+            });
+            const data = await response.json();
+            if (data.popup) {
+                alert(data.message || data.error);
+            }
+            if (response.ok && (data.refresh || data.redirect)) {
+                window.location.href = data.redirect || window.location.href;
+            }
+        });
+    });
+</script>
+{% endblock %}
