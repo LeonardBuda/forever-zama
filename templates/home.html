@@ -1,15 +1,18 @@
 {% extends "base.html" %}
+
 {% block title %}Home - Forever Mavi{% endblock %}
+
 {% block content %}
-<div class="container mx-auto px-4 py-8 text-center">
-    <h1 class="text-3xl font-bold mb-4">Welcome to Forever Mavi! 🌟💖</h1>
-    <p class="mb-6">Discover natural health and beauty products with Mavi Dlamini! 🌺🚀</p>
-    <div class="flex justify-center space-x-4">
-        <a href="{{ url_for('products') }}" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" aria-label="Shop now">Shop Now 🍃</a>
-        <a href="{{ url_for('join') }}" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" aria-label="Join us">Join Us 🎉</a>
+<div class="home-content-wrapper">
+    <h1>Welcome to Forever Mavi! 🌟💖</h1>
+    <img src="{{ url_for('static', filename='images/mavi.jpg') }}" alt="Mavi Dlamini" class="home-image">
+    <p>Discover natural health and beauty products with Mavi Dlamini! 🌺🚀</p>
+    <div class="home-buttons">
+        <a href="{{ url_for('products') }}" class="button">Shop Now 🍃</a>
+        <a href="{{ url_for('join') }}" class="button">Join Us 🎉</a>
     </div>
     {% if back_url %}
-        <a href="{{ back_url }}" class="text-blue-600 hover:underline mt-4 inline-block" aria-label="Back">Back⬅️</a>
+    <p><a href="{{ back_url }}">Back ⬅️</a></p>
     {% endif %}
 </div>
 {% endblock %}

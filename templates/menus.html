@@ -6,13 +6,51 @@
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold text-center mb-6">Our Menus 📋🌟</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {% for category in menu.keys() if category != "Join Options" %}
-            <div class="border rounded-lg p-4 shadow-md text-center">
+        {% for category, details in menu.items() if category != "Join Options" %}
+            <div class="menu-box border rounded-lg p-4 shadow-md text-center flex flex-col items-center">
+                {% if details.image %}
+                    <img src="{{ url_for('static', filename=details.image) }}" alt="{{ category }} Image" class="w-full h-48 object-contain rounded-md mb-4">
+                {% endif %}
                 <h2 class="text-xl font-semibold mb-2">{{ category }} 🌟</h2>
-                <a href="{{ url_for(category.lower() | replace(' & ', '_') | replace(' ', '_')) }}" class="text-blue-600 hover:underline" aria-label="View {{ category }} products">View Products ➡️</a>
+                {% if details.description %}
+                    <p class="text-gray-700 mb-2">{{ details.description }}</p>
+                {% endif %}
+                <a href="{{ url_for(category.lower() | replace(' & ', '_') | replace(' ', '_')) }}" class="text-blue-600 hover:underline mt-auto" aria-label="View {{ category }} products">View Products ➡️</a>
             </div>
         {% endfor %}
     </div>
+
+    <div class="text-center mt-8">
+        <h2 class="text-2xl font-bold">Join Request 📝✨</h2>
+    </div>
+
     <a href="{{ url_for('home') }}" class="text-blue-600 hover:underline mt-4 inline-block text-center w-full" aria-label="Back to home">Back to Home ⬅️</a>
 </div>
+
+<style>
+    /* Styling for the menu boxes - part of requirement 2 */
+    .menu-box {
+        background-color: #e0f2f7; /* A light blue, not yellow */
+        display: flex; /* For better layout control within the box */
+        flex-direction: column;
+        justify-content: space-between; /* Pushes 'View Products' to bottom */
+    }
+
+    /* Styling for a potential 'Cart' section, if you add it directly in this file
+       If 'Cart' is in base.html, apply this CSS there. */
+    .cart-box {
+        background-color: #cce7ee; /* A slightly darker blue for cart */
+        /* Add other styling as needed for your cart box */
+    }
+
+    /* This CSS is important for general image responsiveness and preventing cutting */
+    .menu-box img {
+        max-width: 100%;
+        /* height: auto;  <-- If you remove h-48 from HTML, uncomment this */
+        display: block; /* Remove extra space below image */
+        /* If you still want to constrain height but allow full image to show without h-48: */
+        /* max-height: 200px; */ /* Adjust as needed */
+        /* object-fit: contain; <-- Only if you remove object-contain from HTML */
+    }
+</style>
 {% endblock %}

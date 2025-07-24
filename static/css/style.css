@@ -1,120 +1,507 @@
+/* General Body and Page Background */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f4f8;
-    color: #2e7d32;
+    font-family: 'Inter', sans-serif; /* Changed to Inter font */
+    background-color: #f2d305; /* Requested background color for all pages (yellowish) */
+    color: #333; /* Default text color for better readability */
     margin: 0;
     padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
-.navbar {
-    background-color: #ffca28;
-    padding: 10px;
-    text-align: center;
-    position: relative;
+
+/* Container for main content to center and limit width */
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box; /* Ensure padding is included in element's total width */
 }
-.navbar img {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    max-width: 50px;
+
+/* Header and Navigation Bar */
+header {
+    background-color: #f24805; /* Requested Nav Bar Color (orange/red) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0; /* Padding is now on the .container inside */
 }
-.navbar a {
-    color: #2e7d32;
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px; /* Fixed height for the nav bar */
+}
+
+/* Container for brand name and logo within the nav bar */
+.nav-brand-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between brand text and logo */
+    flex-shrink: 0; /* Prevent this container from shrinking */
+}
+
+/* Styling for "Forever Mavi" brand text */
+.nav-brand {
+    color: white; /* Text color for "Forever Mavi" */
+    font-size: 1.8em; /* Slightly larger text */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Wrapper for the logo */
+.logo-wrapper {
+    height: 100%; /* Make the wrapper fill the height of its parent (nav-brand-logo-container) */
+    display: flex;
+    align-items: center; /* Center image vertically within its wrapper */
+}
+
+/* Logo Styling (the 'FOREVER' image) */
+.logo-image {
+    height: 50px; /* FIXED HEIGHT: This forces the logo to fit within the 60px nav bar */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image scales down and fits within the bounds without cropping */
+    display: block; /* Ensures proper sizing */
+    margin: 0; /* Remove any default margins */
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Spacing between nav links */
+    flex-grow: 1; /* Allow links to take up available space */
+    justify-content: flex-end; /* Push links to the right */
+}
+
+.nav-links a {
+    color: white; /* Nav links color for contrast with #f24805 */
     text-decoration: none;
-    margin: 0 15px;
-    font-size: 16px;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 8px; /* Slightly more rounded links */
+    font-weight: 500; /* Medium font weight */
+    white-space: nowrap; /* Prevent links from wrapping */
 }
-.navbar a:hover {
-    color: #fff;
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighter background on hover */
+    transform: translateY(-1px); /* Subtle lift */
 }
-.content {
-    padding: 20px;
-    flex: 1 0 auto;
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+    background: none;
+    border: none;
+    color: white; /* Button color */
+    font-size: 2em; /* Larger button icon */
+    cursor: pointer;
+    padding: 5px 15px;
+    display: none; /* Hidden by default on desktop */
 }
-.footer {
-    background-color: #ffca28;
+
+/* Mobile Navigation Menu (hidden by default) */
+.mobile-nav-menu {
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(242, 72, 5, 0.95); /* Slightly transparent background */
+    padding: 10px 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-menu a {
+    color: white; /* Links in mobile menu */
+    padding: 12px 20px; /* Larger tap targets */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.mobile-nav-menu a:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+/* Main Content Area */
+main {
+    flex: 1 0 auto; /* Ensures main content takes available space */
+    padding: 20px 0; /* Adjusted padding, .container handles horizontal */
+    width: 100%; /* Ensure it takes full width up to max-width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Home Page Specifics */
+.home-content-wrapper {
     text-align: center;
-    padding: 10px;
+    padding: 30px 20px; /* Added padding for better spacing */
+    background-color: white;
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+    margin-top: 30px; /* More space from navbar */
+    margin-bottom: 30px;
+    max-width: 800px; /* Limit width for home content */
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box; /* Crucial for responsive padding */
+}
+
+.home-content-wrapper h1 {
+    font-size: 2.8em; /* Larger heading */
+    color: #2e7d32; /* Green from previous design, good contrast */
+    margin-bottom: 15px;
+    font-weight: 700; /* Bolder heading */
+    line-height: 1.2; /* Tighter line height for large text */
+}
+
+.home-content-wrapper p {
+    font-size: 1.25em; /* Slightly larger paragraph text */
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Home Image Styling */
+.home-image {
+    width: 25%; /* Reduced to 25% of its container */
+    max-width: 200px; /* Set a max width to prevent it from getting too large on very wide screens */
+    height: auto;
+    display: block;
+    margin: 25px auto; /* Centers the image horizontally and adds vertical margin */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Soft shadow for the image */
+}
+
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* More space between buttons */
+    margin-top: 25px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+/* General Button Styles */
+.button {
+    display: inline-block;
+    padding: 14px 30px; /* Increased padding for buttons */
+    background-color: #4CAF50; /* Green button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; /* More rounded, pill-shaped buttons */
+    font-weight: bold;
+    font-size: 1.15em; /* Slightly larger text in buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Button shadow */
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.button:hover {
+    background-color: #388E3C; /* Darker green on hover */
+    transform: translateY(-3px); /* More noticeable lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.social-button {
+    display: inline-block;
+    background-color: #3b5998; /* Facebook blue */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px; /* Rounded corners */
+    text-decoration: none;
+    font-weight: 600; /* Semi-bold */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.social-button:hover {
+    background-color: #2d4373;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+
+/* Footer */
+footer {
+    background-color: #f24805; /* Requested Footer Color (orange/red) */
+    text-align: center;
+    padding: 25px 0; /* Increased padding */
     width: 100%;
     flex-shrink: 0;
+    color: white; /* Footer text color */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Shadow for footer */
+    font-size: 0.95em;
 }
-.footer .contact-info {
-    margin-bottom: 10px;
+
+footer p {
+    color: rgba(255, 255, 255, 0.9); /* Slightly lighter text for copyright */
 }
-.footer .social-links {
-    margin-top: 10px;
-}
+
+/* Other sections (Placeholder for existing styles) - Enhanced */
 .order-summary, .customer-details {
     background-color: #fff;
-    padding: 15px;
+    padding: 20px; /* Increased padding */
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08); /* Soft shadow */
+    border: 1px solid #eee; /* Subtle border */
 }
+
 .menu-list li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 25px;
 }
+
 .menu-items li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 5px;
+    margin-bottom: 12px;
+    padding: 12px; /* Increased padding */
+    border-radius: 8px; /* More rounded */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Very subtle shadow */
 }
+
 .menu-items li:nth-child(odd) {
-    background-color: #e0f7fa;
+    background-color: #e8f5e9; /* Very light green for odd items */
 }
+
 .menu-items li:nth-child(even) {
     background-color: #fff;
 }
+
 .menu-items .item-name {
     flex-grow: 1;
     text-align: left;
+    font-weight: bold;
+    color: #333; /* Darker text for item name */
 }
+
 .menu-items .details {
     flex-grow: 2;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 15px; /* More padding */
     vertical-align: middle;
+    color: #666;
+    font-size: 0.95em;
 }
+
+/* Consolidate social and join buttons if possible, or define distinct styles */
 .social-btn {
-    margin: 0 5px;
-    padding: 5px 10px;
-    background-color: #d81b60;
+    margin: 0 8px;
+    padding: 8px 15px;
+    background-color: #d81b60; /* A distinct pink/red for these */
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
+
 .social-btn:hover {
     background-color: #ad1457;
 }
-.join-btn {
+
+.join-btn { /* Consider making this use the .button class if it has similar styling */
     display: inline-block;
-    margin: 10px 0;
-    padding: 10px 20px;
-    background-color: #2e7d32;
+    margin: 15px 0;
+    padding: 14px 28px;
+    background-color: #2e7d32; /* A distinct green */
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 .join-btn:hover {
     background-color: #1b5e20;
+    transform: translateY(-2px);
 }
+
+/* Gallery Container for Product Images */
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px; /* Increased gap between product cards */
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding is included in element's total width */
 }
-@media (max-width: 600px) {
-    .navbar a { font-size: 14px; margin: 0 10px; }
-    .navbar img { max-width: 40px; }
-    .content { padding: 10px; }
-    .order-summary, .customer-details { padding: 10px; }
-    .menu-items li { flex-direction: column; text-align: center; }
-    .menu-items .item-name { margin-bottom: 5px; }
-    .menu-items .details { margin-top: 5px; }
-    .footer .contact-info, .footer .social-links { margin: 5px 0; }
+
+/* Styling for individual product cards/items */
+.product-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-align: center;
+    width: calc(33.333% - 20px); /* 3 cards per row with gap */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Consistent margin */
+}
+
+/* Individual Product Image Styling */
+.product-image { /* Targeting images *with the new product-image class* */
+    width: 100%; /* Make image take full width of its parent card */
+    height: auto; /* Allow height to adjust naturally based on aspect ratio */
+    max-height: 200px; /* Set a maximum height to control overall size */
+    object-fit: contain; /* Ensure the image scales down and fits within the bounds without cropping */
+    display: block;
+    border-radius: 8px; /* Slightly rounded corners for product images */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Soft shadow */
+    transition: transform 0.3s ease;
+    background-color: #f8f8f8; /* Light background for images with transparency */
+    padding: 10px; /* Padding inside the image container */
+    box-sizing: border-box; /* Include padding in width/height */
+    margin-bottom: 15px; /* Add margin below the image */
+}
+
+
+.gallery-container .product-card:hover .product-image { /* Specific hover for image within card */
+    transform: scale(1.02);
+}
+
+/* Adjust card width for smaller screens */
+@media (max-width: 1024px) {
+    .product-card {
+        width: calc(50% - 15px); /* 2 cards per row on tablets */
+    }
+}
+
+
+/* Mobile Optimizations - Media Queries */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    nav {
+        height: auto; /* Allow height to adjust for stacked items */
+        padding-bottom: 10px; /* Add padding at the bottom for mobile menu */
+    }
+
+    .nav .container { /* Adjust the container within nav */
+        flex-direction: row; /* Keep elements in a row */
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding-top: 10px;
+        flex-wrap: wrap; /* Allow wrapping if items are too wide */
+    }
+
+    .nav-brand-logo-container { /* Ensure brand and logo stay together */
+        flex-basis: auto; /* Allow content to dictate size */
+        flex-grow: 1; /* Allow it to grow */
+        justify-content: flex-start; /* Align to start */
+    }
+
+    .nav-links {
+        display: none; /* Hide desktop nav links on mobile */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Show mobile menu button */
+    }
+
+    /* Home page adjustments */
+    .home-content-wrapper {
+        padding: 20px 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .home-content-wrapper h1 {
+        font-size: 2em;
+    }
+
+    .home-content-wrapper p {
+        font-size: 1.1em;
+    }
+
+    .home-image {
+        width: 60%; /* Adjust image size on mobile */
+        max-width: 150px; /* Keep a reasonable max-width */
+        margin: 15px auto;
+    }
+
+    .home-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 15px;
+    }
+
+    .button, .social-button, .join-btn {
+        width: 90%; /* Make buttons wider on mobile */
+        max-width: 300px; /* Max width for mobile buttons */
+        margin: 0 auto; /* Center buttons */
+        font-size: 1em;
+    }
+
+    /* Product card adjustments for mobile */
+    .product-card {
+        width: calc(100% - 20px); /* 1 card per row on mobile */
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .product-image { /* Target images within product cards on mobile */
+        height: auto; /* Allow height to adjust naturally */
+        max-height: 150px; /* Slightly smaller max-height for mobile product images */
+        padding: 5px; /* Reduce padding on mobile */
+    }
+
+    /* Other sections */
+    .order-summary, .customer-details, .menu-items li {
+        padding: 15px;
+    }
+
+    .menu-items li {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .menu-items .item-name, .menu-items .details {
+        text-align: left; /* Keep text left-aligned in lists */
+        width: 100%;
+        padding-left: 0;
+        margin-bottom: 5px; /* Add spacing between item name and details */
+    }
+
+    .menu-items .details {
+        font-size: 0.9em;
+    }
+
+    .gallery-container {
+        gap: 10px;
+        padding: 10px;
+    }
+}
+
+/* Even smaller screens (e.g., old phones) */
+@media (max-width: 480px) {
+    .nav-brand {
+        font-size: 1.5em; /* Smaller brand text */
+    }
+
+    .logo-image {
+        height: 40px; /* Adjusted smaller for very small screens if needed */
+    }
+
+    .home-content-wrapper h1 {
+        font-size: 1.8em;
+    }
+
+    .home-content-wrapper p {
+        font-size: 1em;
+    }
 }

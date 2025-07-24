@@ -4,61 +4,61 @@
 {% block meta_keywords %}Forever Mavi, join, reseller, business opportunity{% endblock %}
 {% block content %}
 <div class="container mx-auto px-4 py-8">
-    <a href="{{ url_for('menus') }}" class="text-blue-600 hover:underline mb-4 inline-block" aria-label="Back to menus">Back to Menus ⬅️</a>
-    <h1 class="text-3xl font-bold text-center mb-6">Join Forever Mavi 🎉🌟</h1>
-    <p class="text-center mb-6">Become a reseller with Mavi Dlamini and earn more! 💖🚀</p>
-    <h2 class="text-2xl font-semibold mb-4">Join Request 📝✨</h2>
-    <form action="{{ url_for('join') }}" method="POST" class="max-w-md mx-auto">
-        <div class="mb-4">
-            <label for="name" class="block text-gray-700">Name* ✍️</label>
-            <input type="text" name="name" id="name" required class="w-full p-2 border rounded" aria-label="Your name">
-        </div>
-        <div class="mb-4">
-            <label for="phone" class="block text-gray-700">Phone* 📞</label>
-            <input type="tel" name="phone" id="phone" required class="w-full p-2 border rounded" aria-label="Your phone number">
-        </div>
-        <div class="mb-4">
-            <label for="email" class="block text-gray-700">Email* 📧</label>
-            <input type="email" name="email" id="email" required class="w-full p-2 border rounded" aria-label="Your email address">
-        </div>
-        <div class="mb-4">
-            <label for="package" class="block text-gray-700">Package* 🎁</label>
-            <select name="package" id="package" required class="w-full p-2 border rounded" aria-label="Select a package">
-                <option value="" disabled selected>Select a package</option>
-                {% for option in menu %}
-                    <option value="{{ option.name }}">{{ option.name }} - R{{ option.price | floatformat(2) }} 💸 ({{ option.type }})</option>
-                {% endfor %}
-            </select>
-        </div>
-        <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full" aria-label="Submit join request">Submit Join Request 🚀</button>
-        <p class="mt-4 text-center">That is my Forever shop link if you want to buy direct from Forever and your stuff gets delivered to your place 👇🏽</p>
-        <p class="text-center">
-            <a href="https://shop.foreverliving.com" target="_blank" class="text-blue-600 hover:underline" aria-label="Forever Shop">Forever Shop Link 🛍️</a>
-        </p>
-        <p class="text-center mt-4 font-semibold">The Forever Opportunity 🌟</p>
-        <p class="text-center">Ready to start building your Forever Business?</p>
-        <p class="text-center">I’m excited for you to join my team and see what’s possible with Forever Living.</p>
-        <p class="text-center">Let’s get started.</p>
-        <p class="text-center">
-            <a href="https://foreverliving.com/zaf/en-us/join-now" target="_blank" class="text-blue-600 hover:underline" aria-label="Join Forever">Join Here 👈🏽</a>
-        </p>
-        <p class="text-center mt-4 font-semibold">NOMFUNDO MAVI DLAMINI</p>
-        <p class="text-center">270-002-796-701</p>
-        <p class="text-center">dlaminin678@gmail.com 📧</p>
-    </form>
-    <a href="{{ url_for('menus') }}" class="text-blue-600 hover:underline mt-4 inline-block text-center w-full" aria-label="Back to menus">Back to Menus ⬅️</a>
+    <a href="{{ url_for('menus') }}" class="text-blue-600 hover:underline mb-4 inline-block" aria-label="Back to menus">Back to Menus ⬅️</a>
+    <h1 class="text-3xl font-bold text-center mb-6">Join Forever Mavi 🎉🌟</h1>
+    <p class="text-center mb-6">Become a reseller with Mavi Dlamini and earn more! 💖🚀</p>
+    <h2 class="text-2xl font-semibold mb-4 text-center">Join Request 📝✨</h2> {# ADDED text-center HERE #}
+    <form action="{{ url_for('join') }}" method="POST" class="max-w-md mx-auto">
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700">Name* ✍️</label>
+            <input type="text" name="name" id="name" required class="w-full p-2 border rounded" aria-label="Your name">
+        </div>
+        <div class="mb-4">
+            <label for="phone" class="block text-gray-700">Phone* 📞</label>
+            <input type="tel" name="phone" id="phone" required class="w-full p-2 border rounded" aria-label="Your phone number">
+        </div>
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700">Email* 📧</label>
+            <input type="email" name="email" id="email" required class="w-full p-2 border rounded" aria-label="Your email address">
+        </div>
+        <div class="mb-4">
+            <label for="package" class="block text-gray-700">Package* 🎁</label>
+            <select name="package" id="package" required class="w-full p-2 border rounded" aria-label="Select a package">
+                <option value="" disabled selected>Select a package</option>
+                {% for option in menu %}
+                    <option value="{{ option.name }}">{{ option.name }} - R{{ option.price | floatformat(2) }} 💸 ({{ option.type }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full" aria-label="Submit join request">Submit Join Request 🚀</button>
+        <p class="mt-4 text-center">That is my Forever shop link if you want to buy direct from Forever and your stuff gets delivered to your place 👇🏽</p>
+        <p class="text-center">
+            <a href="https://shop.foreverliving.com" target="_blank" class="text-blue-600 hover:underline" aria-label="Forever Shop">Forever Shop Link 🛍️</a>
+        </p>
+        <p class="text-center mt-4 font-semibold">The Forever Opportunity 🌟</p>
+        <p class="text-center">Ready to start building your Forever Business?</p>
+        <p class="text-center">I’m excited for you to join my team and see what’s possible with Forever Living.</p>
+        <p class="text-center">Let’s get started.</p>
+        <p class="text-center">
+            <a href="https://foreverliving.com/zaf/en-us/join-now" target="_blank" class="text-blue-600 hover:underline" aria-label="Join Forever">Join Here 👈🏽</a>
+        </p>
+        <p class="text-center mt-4 font-semibold">NOMFUNDO MAVI DLAMINI</p>
+        <p class="text-center">270-002-796-701</p>
+        <p class="text-center">dlaminin678@gmail.com 📧</p>
+    </form>
+    <a href="{{ url_for('menus') }}" class="text-blue-600 hover:underline mt-4 inline-block text-center w-full" aria-label="Back to menus">Back to Menus ⬅️</a>
 </div>
 <script>
-    document.querySelector('form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const response = await fetch('{{ url_for('join') }}', {
-            method: 'POST',
-            body: new FormData(e.target)
-        });
-        const data = await response.json();
-        if (data.popup) {
-            alert(data.message || data.error);
-        }
-    });
+    document.querySelector('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const response = await fetch('{{ url_for('join') }}', {
+            method: 'POST',
+            body: new FormData(e.target)
+        });
+        const data = await response.json();
+        if (data.popup) {
+            alert(data.message || data.error);
+        }
+    });
 </script>
 {% endblock %}
