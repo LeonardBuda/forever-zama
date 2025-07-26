@@ -57,15 +57,15 @@ menu = {
             {"name": "Bee Propolis", "price": 687.40, "description": "Boosts immunity, fights bacteria, viruses, infections, allergies, and skin diseases. 🐝"},
             {"name": "Multi Maca", "price": 569.14, "description": "Boosts energy, endurance, supports sexual health, fertility, hormonal balance. 60 tablets. 💊"},
             {"name": "Forever iVision", "price": 682.19, "description": "Improves eye circulation, high in vitamins C & A, supports vision, contains bilberry, protects retina. 60 softgels. 👁️"},
-            {"name": "Forever Immune Gummy", "price": 78.10, "description": "Supports immune system with 10 vitamins and zinc, tropical-flavored, vegan-friendly. 🍬"},
+            {"name": "Forever Immune Gummy", "price": 788.10, "description": "Supports immune system with 10 vitamins and zinc, tropical-flavored, vegan-friendly. 🍬"},
             {"name": "Vitolize for Men", "price": 639.64, "description": "Supports fertility, PMS, urinary function, prostate health. 🧑"},
             {"name": "Vitolize for Women", "price": 677.05, "description": "Supports fertility, PMS, urinary function. 👩"},
             {"name": "Active Pro-B", "price": 783.76, "description": "Promotes healthy digestion, nutrient absorption. 🦠"},
             {"name": "Forever Supergreens", "price": 820.95, "description": "Supports natural defenses, metabolism, energy levels. 🥬"},
             {"name": "Forever Focus", "price": 178.31, "description": "Enhances focus, concentration, brain energy for students, athletes, professionals. 🧠"},
             {"name": "Aloe Drinks Tripack Aloe Vera Gel", "price": 1669.58, "description": "Pack of 3 x 1 litre aloe vera gel drinks. 🥤"},
-            {"name": "Aloe Drinks Tripack Variety", "price": 169.58, "description": "Pack of 1 litre Aloe Vera Gel, Aloe Peaches, Aloe Berry Nectar. 🍹"},
-            {"name": "Aloe Drinks Tripack Aloe Berry Nectar", "price": 169.58, "description": "Pack of 3 x 1 litre aloe berry nectar. 🍓"},
+            {"name": "Aloe Drinks Tripack Variety", "price": 1669.58, "description": "Pack of 1 litre Aloe Vera Gel, Aloe Peaches, Aloe Berry Nectar. 🍹"},
+            {"name": "Aloe Drinks Tripack Aloe Berry Nectar", "price": 1669.58, "description": "Pack of 3 x 1 litre aloe berry nectar. 🍓"},
             {"name": "Forever Calcium", "price": 521.10, "description": "Supports bone and teeth health with vitamins C & D. 🦷"},
             {"name": "Cardio Health", "price": 707.47, "description": "Supports heart function and blood flow. ❤️"},
             {"name": "Active HA", "price": 719.31, "description": "Joint lubrication and arthritis support. 🦵"},
@@ -85,10 +85,10 @@ menu = {
             {"name": "Aloe Vera Gelly", "price": 320.56, "description": "Soothes skin irritations, deep hydration, speeds healing. 🌿"},
             {"name": "Aloe Heat Lotion", "price": 320.00, "description": "Soothes muscle and joint pain, ideal for massages. 💆"},
             {"name": "Forever R3 Factor", "price": 687.40, "description": "Retains skin moisture, restores resilience with aloe vera, collagen, vitamins A & E. 🌟"},
-            {"name": "Replenishing Skin Oil", "price": 64.20, "description": "Nourishes skin, combats environmental stressors, suitable for dry/sensitive skin. 🛢️"},
+            {"name": "Replenishing Skin Oil", "price": 644.20, "description": "Nourishes skin, combats environmental stressors, suitable for dry/sensitive skin. 🛢️"},
             {"name": "Aloe Scrub", "price": 338.00, "description": "Natural exfoliator, prepares skin for moisturization, promotes silky skin. ✨"},
             {"name": "Aloe Sunscreen", "price": 442.49, "description": "SPF 30, natural zinc oxide, water-resistant, soothes with aloe and vitamin E. ☀️"},
-            {"name": "Aloe Body Lotion", "price": 48.54, "description": "Promotes hydration, supports skin’s moisture barrier, non-greasy. 💦"},
+            {"name": "Aloe Body Lotion", "price": 484.54, "description": "Promotes hydration, supports skin’s moisture barrier, non-greasy. 💦"},
             {"name": "Forever Marine Collagen", "price": 1780.00, "description": "Promotes youthful skin, healthier hair, stronger nails, high in vitamins and zinc. 💅"},
             {"name": "Smoothing Exfoliator", "price": 389.03, "description": "Evens skin tone, brightens complexion, reduces dark spots. 🌞"},
             {"name": "Balancing Toner", "price": 463.41, "description": "Balances skin moisture for combination skin. ⚖️"},
@@ -98,7 +98,7 @@ menu = {
             {"name": "Infinite Skin Care Kit", "price": 3440.80, "description": "Includes Hydrating Cleanser (R51.18), Firming Serum (R51.96), Firming Complex (R51.96), Restoring Crème (R1066.07). 🎁"},
             {"name": "Aloe Lips", "price": 74.80, "description": "Moisturizes lips, treats dry lips, insect bites, small cuts. 💋"},
             {"name": "Forever Bright Toothgel", "price": 165.04, "description": "Cleans and whitens teeth, fights plaque, fluoride-free, minty taste. 🦷"},
-            {"name": "Gentleman’s Pride", "price": 320.56, "description": "Moisturizing aftershave, alcohol-free, masculine scent. 🧔"},
+            {"name": "Gentleman\'s Pride", "price": 320.56, "description": "Moisturizing aftershave, alcohol-free, masculine scent. 🧔"},
             {"name": "Deodorant Sprays", "price": 138.26, "description": "Aloe-enriched, high fragrance, paraben-free, up to 1020 sprays. 🌬️"},
             {"name": "MSM Gel", "price": 497.43, "description": "Soothes joints, muscles, non-staining. 🦵"},
             {"name": "Aloe Liquid Soap", "price": 399.38, "description": "Gentle cleanser, retains skin moisture, promotes hydration. 🧼"},
@@ -111,7 +111,7 @@ menu = {
     "Weight Management": {
         "Products": [
             {"name": "Garcinia Plus", "price": 652.96, "description": "Reduces appetite, stabilizes blood sugar. 🍎"},
-            {"name": "Forever Lean", "price": 89.84, "description": "Blocks calorie absorption for weight control. ⚖️"},
+            {"name": "Forever Lean", "price": 889.84, "description": "Blocks calorie absorption for weight control. ⚖️"},
             {"name": "C9 Pack", "price": 2602.10, "description": "9-day detox and weight loss program, available in Vanilla or Chocolate. 🥗"},
             {"name": "F15", "price": 3156.37, "description": "15-day natural weight loss program. 🏃"},
             {"name": "Forever Fibre", "price": 612.81, "description": "Improves digestion, helps feel fuller, slows nutrient absorption. 🌾"},
@@ -127,12 +127,15 @@ menu = {
     },
     "Combos": {
         "Products": [
-            {"name": "Asthma Combo", "price": 1200.00, "description": "Combination pack for asthma support. 🫁"},
-            {"name": "Diabetes Combo", "price": 1100.00, "description": "Combination pack for diabetes management. 💉"},
-            {"name": "C9 Combo", "price": 2602.00, "description": "General wellness combination pack. 🎁"},
-            {"name": "Stroke Support Combo", "price": 2200.00, "description": "Combination pack for stroke recovery support. 🩺"},
-            {"name": "Stroke Recovery Pack", "price": 2690.00, "description": "Comprehensive pack for stroke recovery. 🩹"},
-            {"name": "Weight Gain Muscle Gain Combo", "price": 1800.00, "description": "Combination pack for weight and muscle gain. 💪"}
+            {"name": "Asthma Combo", "price": 0.00, "description": "Combination pack for asthma support. 🫁"},
+            {"name": "Diabetes Combo", "price": 0.00, "description": "Combination pack for diabetes management. 💉"},
+            {"name": "Stroke Support Combo", "price": 0.00, "description": "Combination pack for stroke recovery support. 🩺"},
+            {"name": "Stroke Recovery Pack", "price": 0.00, "description": "Comprehensive pack for stroke recovery. 🩹"},
+            {"name": "Weight Gain Muscle Gain Combo", "price": 0.00, "description": "Combination pack for weight and muscle gain. 💪"},
+            {"name": "Health 4 Men Combo", "price": 0.00, "description": "Health support combo for men. 🧑"},
+            {"name": "Male Performance Combo", "price": 0.00, "description": "Performance enhancement combo for men. 💪"},
+            {"name": "Mvusa Nduku Combo", "price": 0.00, "description": "Traditional wellness combo. 🌿"},
+            {"name": "Gentlemen\'s Combo", "price": 0.00, "description": "Gentlemen’s wellness pack. 🧔"}
         ]
     },
     "Join Options": [
@@ -214,10 +217,6 @@ def remove_from_cart():
 def home():
     return render_template('home.html')
 
-@app.route('/products')
-def products():
-    return render_template('products.html', menu=menu)
-
 @app.route('/menus')
 def menus():
     return render_template('menus.html', menu=menu)
@@ -291,7 +290,7 @@ def view_cart():
         total = sum(item['total'] if 'total' in item else item['amount'] for item in cart_items)
         return render_template('cart.html', cart_items=cart_items, total=total)
     except Exception as e:
-        return jsonify({"error": f"Failed to load cart: {str(e)} 🚫", "popup": True}), 500
+        return redirect(url_for('menus'))  # Fallback to menus if error occurs
 
 @app.route('/clear_cart')
 def clear_cart():
