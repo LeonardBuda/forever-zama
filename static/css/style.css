@@ -335,7 +335,8 @@ footer p {
 
 /* Styling for individual product cards/items */
 .product-card {
-    background-color: white;
+    /* Changed background-color to match the navbar/footer orange */
+    background-color: #f24805;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     padding: 15px;
@@ -442,7 +443,6 @@ footer p {
     .button, .social-button, .join-btn {
         width: 90%; /* Make buttons wider on mobile */
         max-width: 300px; /* Max width for mobile buttons */
-        margin: 0 auto; /* Center buttons */
         font-size: 1em;
     }
 
@@ -502,6 +502,6 @@ footer p {
     }
 
     .home-content-wrapper p {
-        font-size: 1em;
+        font-size: 1.1em;
     }
 }

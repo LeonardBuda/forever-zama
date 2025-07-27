@@ -51,7 +51,7 @@ menu = {
             {"name": "Aloe Berry Nectar", "price": 561.46, "description": "Supports healthy digestive system, period pains, womb problems, constipation, low blood pressure, heart issues. 🍓"},
             {"name": "Forever Garlic-Thyme", "price": 390.00, "description": "Boosts immunity, supports heart and respiratory health, natural antibiotic. 🧄"},
             {"name": "Forever ImmuBlend", "price": 495.00, "description": "Immune support with vitamins C & D and zinc, full-body formula. 💪"},
-            {"name": "Forever Arctic Sea", "price": 38.59, "description": "Supports prostate health, cholesterol, blood pressure, cardiovascular system, skin health. 🐟"},
+            {"name": "Forever Arctic Sea", "price": 638.59, "description": "Supports prostate health, cholesterol, blood pressure, cardiovascular system, skin health. 🐟"},
             {"name": "Forever Freedom", "price": 802.56, "description": "Promotes joint health for sports, stroke, arthritis, gout, and muscle cramps. 🏃"},
             {"name": "Aloe Blossom Herbal Tea", "price": 378.67, "description": "Caffeine-free, relieves stress, insomnia, improves digestion. ☕"},
             {"name": "Bee Propolis", "price": 687.40, "description": "Boosts immunity, fights bacteria, viruses, infections, allergies, and skin diseases. 🐝"},

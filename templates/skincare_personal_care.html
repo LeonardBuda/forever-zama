@@ -9,8 +9,9 @@
     <h2 class="text-2xl font-semibold mb-4">Products 🌺✨</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {% for item in menu.Products %}
-            <div class="border rounded-lg p-4 shadow-md">
-                {% set image_name = item.name | lower | replace(' ', '_') | replace(':', '_') %}
+            {# Added bg-orange-500 for the product card background #}
+            <div class="border rounded-lg p-4 shadow-md bg-orange-500">
+                {% set image_name = item.name | lower | replace(' ', '_') | replace(':', '_') | replace('\'', '') | replace('è', 'e') %}
                 <img src="/static/images/products/{{ image_name }}.jpg" alt="{{ item.name }}" loading="lazy" class="w-full h-48 object-contain mb-4">
                 <h3 class="text-lg font-semibold">{{ item.name }} 🌸</h3>
                 <p class="text-lg font-bold text-green-600">R{{ item.price | floatformat(2) }} 💸</p>
