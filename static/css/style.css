@@ -45,9 +45,9 @@ nav {
     flex-shrink: 0; /* Prevent this container from shrinking */
 }
 
-/* Styling for "Forever Mavi" brand text */
+/* Styling for "Forever Zama" brand text */
 .nav-brand {
-    color: white; /* Text color for "Forever Mavi" */
+    color: white; /* Text color for "Forever Zama" */
     font-size: 1.8em; /* Slightly larger text */
     white-space: nowrap; /* Prevent text from wrapping */
 }
@@ -214,198 +214,15 @@ main {
     border-radius: 8px; /* Rounded corners */
     text-decoration: none;
     font-weight: 600; /* Semi-bold */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-.social-button:hover {
-    background-color: #2d4373;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-
-/* Footer */
-footer {
-    background-color: #f24805; /* Requested Footer Color (orange/red) */
-    text-align: center;
-    padding: 25px 0; /* Increased padding */
-    width: 100%;
-    flex-shrink: 0;
-    color: white; /* Footer text color */
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Shadow for footer */
-    font-size: 0.95em;
-}
-
-footer p {
-    color: rgba(255, 255, 255, 0.9); /* Slightly lighter text for copyright */
-}
-
-/* Other sections (Placeholder for existing styles) - Enhanced */
-.order-summary, .customer-details {
-    background-color: #fff;
-    padding: 20px; /* Increased padding */
-    border-radius: 10px;
-    margin-bottom: 25px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08); /* Soft shadow */
-    border: 1px solid #eee; /* Subtle border */
-}
-
-.menu-list li {
-    display: inline;
-    margin-right: 25px;
-}
-
-.menu-items li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    padding: 12px; /* Increased padding */
-    border-radius: 8px; /* More rounded */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Very subtle shadow */
-}
-
-.menu-items li:nth-child(odd) {
-    background-color: #e8f5e9; /* Very light green for odd items */
-}
-
-.menu-items li:nth-child(even) {
-    background-color: #fff;
-}
-
-.menu-items .item-name {
-    flex-grow: 1;
-    text-align: left;
-    font-weight: bold;
-    color: #333; /* Darker text for item name */
-}
-
-.menu-items .details {
-    flex-grow: 2;
-    text-align: left;
-    padding-left: 15px; /* More padding */
-    vertical-align: middle;
-    color: #666;
-    font-size: 0.95em;
-}
-
-/* Consolidate social and join buttons if possible, or define distinct styles */
-.social-btn {
-    margin: 0 8px;
-    padding: 8px 15px;
-    background-color: #d81b60; /* A distinct pink/red for these */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-.social-btn:hover {
-    background-color: #ad1457;
+.social-button:hover {
+    background-color: #2d4373; /* Darker blue on hover */
 }
 
-.join-btn { /* Consider making this use the .button class if it has similar styling */
-    display: inline-block;
-    margin: 15px 0;
-    padding: 14px 28px;
-    background-color: #2e7d32; /* A distinct green */
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.join-btn:hover {
-    background-color: #1b5e20;
-    transform: translateY(-2px);
-}
-
-/* Gallery Container for Product Images */
-.gallery-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* Increased gap between product cards */
-    padding: 20px;
-    box-sizing: border-box; /* Ensure padding is included in element's total width */
-}
-
-/* Styling for individual product cards/items */
-.product-card {
-    /* Changed background-color to match the navbar/footer orange */
-    background-color: #f24805;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    padding: 15px;
-    text-align: center;
-    width: calc(33.333% - 20px); /* 3 cards per row with gap */
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px; /* Consistent margin */
-}
-
-/* Individual Product Image Styling */
-.product-image { /* Targeting images *with the new product-image class* */
-    width: 100%; /* Make image take full width of its parent card */
-    height: auto; /* Allow height to adjust naturally based on aspect ratio */
-    max-height: 200px; /* Set a maximum height to control overall size */
-    object-fit: contain; /* Ensure the image scales down and fits within the bounds without cropping */
-    display: block;
-    border-radius: 8px; /* Slightly rounded corners for product images */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Soft shadow */
-    transition: transform 0.3s ease;
-    background-color: #f8f8f8; /* Light background for images with transparency */
-    padding: 10px; /* Padding inside the image container */
-    box-sizing: border-box; /* Include padding in width/height */
-    margin-bottom: 15px; /* Add margin below the image */
-}
-
-
-.gallery-container .product-card:hover .product-image { /* Specific hover for image within card */
-    transform: scale(1.02);
-}
-
-/* Adjust card width for smaller screens */
-@media (max-width: 1024px) {
-    .product-card {
-        width: calc(50% - 15px); /* 2 cards per row on tablets */
-    }
-}
-
-
-/* Mobile Optimizations - Media Queries */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .container {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    nav {
-        height: auto; /* Allow height to adjust for stacked items */
-        padding-bottom: 10px; /* Add padding at the bottom for mobile menu */
-    }
-
-    .nav .container { /* Adjust the container within nav */
-        flex-direction: row; /* Keep elements in a row */
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding-top: 10px;
-        flex-wrap: wrap; /* Allow wrapping if items are too wide */
-    }
-
-    .nav-brand-logo-container { /* Ensure brand and logo stay together */
-        flex-basis: auto; /* Allow content to dictate size */
-        flex-grow: 1; /* Allow it to grow */
-        justify-content: flex-start; /* Align to start */
-    }
-
     .nav-links {
         display: none; /* Hide desktop nav links on mobile */
     }
@@ -414,35 +231,47 @@ footer p {
         display: block; /* Show mobile menu button */
     }
 
-    /* Home page adjustments */
+    .nav-brand-logo-container {
+        justify-content: center; /* Center the brand/logo on mobile */
+        width: 100%; /* Take full width */
+    }
+
+    .nav-brand {
+        font-size: 1.5em; /* Smaller font for brand on mobile */
+    }
+
+    .logo-image {
+        height: 40px; /* Smaller logo on mobile */
+    }
+
     .home-content-wrapper {
-        padding: 20px 15px;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 20px;
     }
 
     .home-content-wrapper h1 {
-        font-size: 2em;
+        font-size: 2em; /* Smaller heading on mobile */
     }
 
     .home-content-wrapper p {
-        font-size: 1.1em;
+        font-size: 1em;
     }
 
     .home-image {
-        width: 60%; /* Adjust image size on mobile */
-        max-width: 150px; /* Keep a reasonable max-width */
-        margin: 15px auto;
+        width: 40%; /* Larger on smaller screens for better visibility */
+        max-width: 150px; /* Cap its size */
     }
 
     .home-buttons {
         flex-direction: column; /* Stack buttons vertically */
-        gap: 15px;
+        gap: 15px; /* Reduce gap for stacked buttons */
     }
 
-    .button, .social-button, .join-btn {
-        width: 90%; /* Make buttons wider on mobile */
-        max-width: 300px; /* Max width for mobile buttons */
+    .button {
+        width: 80%; /* Make buttons wider on mobile */
+        max-width: 300px; /* But not too wide */
+        margin: 0 auto; /* Center them */
         font-size: 1em;
     }
 
@@ -489,19 +318,16 @@ footer p {
 
 /* Even smaller screens (e.g., old phones) */
 @media (max-width: 480px) {
-    .nav-brand {
-        font-size: 1.5em; /* Smaller brand text */
-    }
-
-    .logo-image {
-        height: 40px; /* Adjusted smaller for very small screens if needed */
+    .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
 
     .home-content-wrapper h1 {
         font-size: 1.8em;
     }
 
-    .home-content-wrapper p {
-        font-size: 1.1em;
+    .home-buttons .button {
+        font-size: 0.9em;
     }
 }

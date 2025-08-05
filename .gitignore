@@ -1,5 +1,6 @@
+#.gitignore
 # Ignore Firebase credentials
-forever-mavi-firebase-adminsdk.json
+forever-zama-firebase-adminsdk.json
 
 # Ignore Python cache and environment files
 __pycache__/

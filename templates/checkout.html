@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Checkout - Forever Mavi{% endblock %}
-{% block meta_description %}Complete your purchase at Forever Mavi{% endblock %}
-{% block meta_keywords %}Forever Mavi, checkout, order, payment{% endblock %}
+{% block title %}Checkout - Forever Zama{% endblock %}
+{% block meta_description %}Complete your purchase at Forever Zama{% endblock %}
+{% block meta_keywords %}Forever Zama, checkout, order, payment{% endblock %}
 {% block content %}
 <div class="container mx-auto px-4 py-8">
     <a href="{{ url_for('view_cart') }}" class="text-blue-600 hover:underline mb-4 inline-block" aria-label="Back to cart">Back ⬅️</a>
@@ -29,22 +29,30 @@
                 <input type="text" name="surname" id="surname" value="{{ remembered_customer.surname if remembered_customer.surname else '' }}" class="w-full p-2 border rounded" aria-label="Your surname">
             </div>
             <div class="mb-4">
-                <label for="phone" class="block text-gray-700">Phone* 📞</label>
-                <input type="tel" name="phone" id="phone" value="{{ remembered_customer.phone if remembered_customer.phone else '' }}" required class="w-full p-2 border rounded" aria-label="Your phone number">
-            </div>
-            <div class="mb-4">
                 <label for="email" class="block text-gray-700">Email* 📧</label>
                 <input type="email" name="email" id="email" value="{{ remembered_customer.email if remembered_customer.email else '' }}" required class="w-full p-2 border rounded" aria-label="Your email address">
             </div>
             <div class="mb-4">
-                <label for="special_note" class="block text-gray-700">Special Note 📝</label>
-                <textarea name="special_note" id="special_note" class="w-full p-2 border rounded" rows="4" aria-label="Special note"></textarea>
+                <label for="phone" class="block text-gray-700">Phone* 📞</label>
+                <input type="tel" name="phone" id="phone" value="{{ remembered_customer.phone if remembered_customer.phone else '' }}" required class="w-full p-2 border rounded" aria-label="Your phone number">
+            </div>
+            <div class="mb-4">
+                <label for="address" class="block text-gray-700">Delivery Address* 🏡</label>
+                <textarea name="address" id="address" rows="3" required class="w-full p-2 border rounded" aria-label="Your delivery address">{{ remembered_customer.address if remembered_customer.address else '' }}</textarea>
+            </div>
+            <div class="mb-4">
+                <label for="city" class="block text-gray-700">City* 🏙️</label>
+                <input type="text" name="city" id="city" value="{{ remembered_customer.city if remembered_customer.city else '' }}" required class="w-full p-2 border rounded" aria-label="Your city">
+            </div>
+            <div class="mb-4">
+                <label for="postal_code" class="block text-gray-700">Postal Code* ✉️</label>
+                <input type="text" name="postal_code" id="postal_code" value="{{ remembered_customer.postal_code if remembered_customer.postal_code else '' }}" required class="w-full p-2 border rounded" aria-label="Your postal code">
             </div>
             <div class="mb-4">
                 <label for="payment_method" class="block text-gray-700">Payment Method* 💳</label>
                 <select name="payment_method" id="payment_method" required class="w-full p-2 border rounded" aria-label="Select payment method">
-                    <option value="" disabled selected>Select payment method 🌟</option>
-                    <option value="EFT">EFT (coming soon) 🚧</option>
+                    <option value="">Select a method</option>
+                    <option value="EFT">EFT 🏦</option>
                     <option value="E-wallet">E-wallet 💳</option>
                     <option value="Cash send">Cash send 💵</option>
                     <option value="In-App">In-App (coming soon) 🚧</option>
@@ -74,6 +82,12 @@
         }
         if (response.ok && data.redirect) {
             window.location.href = data.redirect;
+        } else if (response.ok) {
+            // If no redirect, assume success and maybe show a general success message or clear form
+            alert(data.message || 'Order placed successfully!');
+            e.target.reset(); // Clear form after successful submission
+        } else {
+            alert(data.error || 'There was an error processing your order.');
         }
     });
 </script>
