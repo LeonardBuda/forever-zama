@@ -23,36 +23,42 @@
         </div>
         <div class="mb-4">
             <label for="package" class="block text-gray-700">Package* 🎁</label>
-            <select name="package" id="package" required class="w-full p-2 border rounded" aria-label="Select package">
-                <option value="">Select a package</option>
-                <option value="Forever Business Pak">Forever Business Pak 💼</option>
-                <option value="Clean 9">Clean 9 🌟</option>
-                <option value="F15">F15 💪</option>
-                <option value="Vital 5">Vital 5 ✨</option>
-                <option value="Other">Other (please specify in message) 📝</option>
+            <select name="package" id="package" required class="w-full p-2 border rounded" aria-label="Select a package">
+                <option value="" disabled selected>Select a package</option>
+                {% for option in menu %}
+                    <option value="{{ option.name }}">{{ option.name }} - R{{ option.price | floatformat(2) }} 💸 ({{ option.type }})</option>
+                {% endfor %}
             </select>
         </div>
-        <div class="mb-4">
-            <label for="message" class="block text-gray-700">Message (Optional) 💬</label>
-            <textarea name="message" id="message" rows="4" class="w-full p-2 border rounded" aria-label="Your message"></textarea>
-        </div>
-        <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full" aria-label="Submit join request">Submit Request 🚀</button>
+        <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full" aria-label="Submit join request">Submit Join Request 🚀</button>
+        <p class="mt-4 text-center">That is my Forever shop link if you want to buy direct from Forever and your stuff gets delivered to your place 👇🏽</p>
+        <p class="text-center">
+            <a href="https://270003466746.fbo.foreverliving.com" target="_blank" class="text-blue-600 hover:underline" aria-label="Forever Shop">Forever Shop Link 🛍️</a>
+        </p>
+        <p class="text-center mt-4 font-semibold">The Forever Opportunity 🌟</p>
+        <p class="text-center">Ready to start building your Forever Business?</p>
+        <p class="text-center">I’m excited for you to join my team and see what’s possible with Forever Living.</p>
+        <p class="text-center">Let’s get started.</p>
+        <p class="text-center">
+            <a href="https://270003466746.fbo.foreverliving.com" target="_blank" class="text-blue-600 hover:underline" aria-label="Join Forever">Join Here 👈🏽</a>
+        </p>
+        <p class="text-center mt-4 font-semibold">ZAMA SIBIYA</p>
+        <p class="text-center">270-003-466-746</p>
+        <p class="text-center">ndabazama7@gmail.com 📧</p>
     </form>
-    <p class="text-center mt-6">
-        <a href="https://shop.foreverliving.com" target="_blank" class="text-blue-600 hover:underline" aria-label="Forever Shop">Forever Shop Link 🛍️</a>
-    </p>
-    <p class="text-center mt-4 font-semibold">The Forever Opportunity 🌟</p>
-    <p class="text-center">Ready to start building your Forever Business?</p>
-    <p class="text-center">I’m excited for you to join my team and see what’s possible with Forever Living.</p>
-    <p class="text-center">Let’s get started.</p>
-    <p class="text-center">
-        <a href="https://270003466746.fbo.foreverliving.com" target="_blank" class="text-blue-600 hover:underline" aria-label="Join Forever">Join Here 👈🏽</a>
-    </p>
-    <p class="text-center mt-4 font-semibold">ZAMA SIBIYA</p>
-    <p class="text-center">+27724653570</p>
-    <p class="text-center">ndabazama7@gmail.com</p>
-    <p class="text-center">
-        <a href="https://facebook.com/forever_zama" target="_blank" class="text-blue-600 hover:underline" aria-label="Forever Zama Facebook Page">Forever Zama Facebook Page 👍🏽</a>
-    </p>
+    <a href="{{ url_for('menus') }}" class="text-blue-600 hover:underline mt-4 inline-block text-center w-full" aria-label="Back to menus">Back to Menus ⬅️</a>
 </div>
+<script>
+    document.querySelector('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const response = await fetch('{{ url_for('join') }}', {
+            method: 'POST',
+            body: new FormData(e.target)
+        });
+        const data = await response.json();
+        if (data.popup) {
+            alert(data.message || data.error);
+        }
+    });
+</script>
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Health & Wellness - Forever Mavi{% endblock %}
-{% block meta_description %}Discover health and wellness supplements at Forever Mavi{% endblock %}
-{% block meta_keywords %}Forever Mavi, health, wellness, supplements, aloe vera{% endblock %}
+{% block title %}Health & Wellness - Forever Zama{% endblock %}
+{% block meta_description %}Discover health and wellness supplements at Forever Zama{% endblock %}
+{% block meta_keywords %}Forever Zama, health, wellness, supplements, aloe vera{% endblock %}
 {% block content %}
 <div class="container mx-auto px-4 py-8">
     <a href="{{ url_for('menus') }}" class="text-blue-600 hover:underline mb-4 inline-block" aria-label="Back to menus">Back to Menus ⬅️</a>
@@ -21,7 +21,7 @@
                     <input type="number" name="quantity" value="1" min="1" class="p-2 border rounded w-20" aria-label="Quantity for {{ item.name }}">
                     <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" aria-label="Add {{ item.name }} to cart">Add to Cart 🛒</button>
                 </form>
-                <a href="https://api.whatsapp.com/send?text=Check out {{ item.name }} at Forever Mavi! {{ url_for('health_wellness', _external=True) }}" target="_blank" class="text-green-600 hover:underline mt-2 inline-block" aria-label="Share {{ item.name }} on WhatsApp">Share on WhatsApp 📱</a>
+                <a href="https://api.whatsapp.com/send?text=Check out {{ item.name }} at Forever Zama! {{ url_for('health_wellness', _external=True) }}" target="_blank" class="text-green-600 hover:underline mt-2 inline-block" aria-label="Share {{ item.name }} on WhatsApp">Share on WhatsApp 📱</a>
             </div>
         {% endfor %}
     </div>

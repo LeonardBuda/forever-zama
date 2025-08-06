@@ -1,6 +1,6 @@
 #.gitignore
 # Ignore Firebase credentials
-forever-zama-firebase-adminsdk.json
+forever-zama-firebase-adminsdk-fbsvc-7aafa0b583
 
 # Ignore Python cache and environment files
 __pycache__/

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Combos - Forever Mavi{% endblock %}
-{% block meta_description %}Explore wellness combo packs at Forever Mavi{% endblock %}
-{% block meta_keywords %}Forever Mavi, combos, wellness, health packs{% endblock %}
+{% block title %}Combos - Forever Zama{% endblock %}
+{% block meta_description %}Explore wellness combo packs at Forever Zama{% endblock %}
+{% block meta_keywords %}Forever Zama, combos, wellness, health packs{% endblock %}
 {% block content %}
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold text-center">All Combos are "Price-On-Request" due to discounts, please add to cart and checkout, a price will be sent to you.</h1>
@@ -22,7 +22,7 @@
                     <input type="number" name="quantity" value="1" min="1" class="p-2 border rounded w-20" aria-label="Quantity for {{ item.name }}">
                     <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" aria-label="Add {{ item.name }} to cart">Add to Cart 🛒</button>
                 </form>
-                <a href="https://api.whatsapp.com/send?text=Check out {{ item.name }} at Forever Mavi! {{ url_for('combos', _external=True) }}" target="_blank" class="text-green-600 hover:underline mt-2 inline-block" aria-label="Share {{ item.name }} on WhatsApp">Share on WhatsApp 📱</a>
+                <a href="https://api.whatsapp.com/send?text=Check out {{ item.name }} at Forever Zama! {{ url_for('combos', _external=True) }}" target="_blank" class="text-green-600 hover:underline mt-2 inline-block" aria-label="Share {{ item.name }} on WhatsApp">Share on WhatsApp 📱</a>
             </div>
         {% endfor %}
     </div>
