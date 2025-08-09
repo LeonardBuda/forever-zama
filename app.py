@@ -51,7 +51,7 @@ menu = {
             {"name": "Aloe Berry Nectar", "price": 561.46, "description": "Supports healthy digestive system, period pains, womb problems, constipation, low blood pressure, heart issues. 🍓"},
             {"name": "Forever Garlic-Thyme", "price": 390.00, "description": "Boosts immunity, supports heart and respiratory health, natural antibiotic. 🧄"},
             {"name": "Forever ImmuBlend", "price": 495.00, "description": "Immune support with vitamins C & D and zinc, full-body formula. 💪"},
-            {"name": "Forever Arctic Sea", "price": 638.59, "description": "Supports prostate health, cholesterol, blood pressure, cardiovascular system, skin health. 🐟"},
+            {"name": "Forever Arctic Sea", "price": 659.09, "description": "Supports prostate health, cholesterol, blood pressure, cardiovascular system, skin health. 🐟"},
             {"name": "Forever Freedom", "price": 802.56, "description": "Promotes joint health for sports, stroke, arthritis, gout, and muscle cramps. 🏃"},
             {"name": "Aloe Blossom Herbal Tea", "price": 378.67, "description": "Caffeine-free, relieves stress, insomnia, improves digestion. ☕"},
             {"name": "Bee Propolis", "price": 687.40, "description": "Boosts immunity, fights bacteria, viruses, infections, allergies, and skin diseases. 🐝"},
@@ -71,8 +71,8 @@ menu = {
             {"name": "Active HA", "price": 719.31, "description": "Joint lubrication and arthritis support. 🦵"},
             {"name": "ARGI+", "price": 1612.74, "description": "Anti-aging, energy, cardiovascular health. 🩺"},
             {"name": "Forever Move", "price": 1332.54, "description": "Supports joint health, flexibility, cartilage, reduces stiffness. 🏋️"},
-            {"name": "Forever Aloe Peaches", "price": 561.46, "description": "Supports digestive health and immunity. 🍑"},
-            {"name": "Forever Daily", "price": 650.21, "description": "Supports general health with vitamins and minerals. 💊"}
+            {"name": "Forever Aloe Peaches", "price": 547.30, "description": "Supports digestive health and immunity. 🍑"},
+            {"name": "Forever Daily", "price": 426.43, "description": "Supports general health with vitamins and minerals. 💊"}
         ]
     },
     "Skincare & Personal Care": {
@@ -105,7 +105,7 @@ menu = {
             {"name": "Aloe Body Wash", "price": 479.26, "description": "Gentle cleanser, retains skin moisture, promotes hydration. 🚿"},
             {"name": "Sonya Precision Liquid Eyeliner", "price": 384.17, "description": "Rich black color, defined brush for fine lines, natural wax for thickness. 🖌️"},
             {"name": "Sonya Daily Skincare System", "price": 1817.00, "description": "Balances moisture for combination skin, aloe-based, cruelty-free. 🌸"},
-            {"name": "Aloe First", "price": 320.56, "description": "Soothes skin irritations, promotes healing. 🩹"}
+            {"name": "Aloe First", "price": 422.63, "description": "Soothes skin irritations, promotes healing. 🩹"}
         ]
     },
     "Weight Management": {
