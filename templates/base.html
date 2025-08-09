@@ -3,55 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Forever Zama{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}Welcome to Forever Zama, your source for health and wellness products{% endblock %}">
-    <meta name="keywords" content="{% block meta_keywords %}Forever Zama, health, wellness, aloe vera{% endblock %}">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-    </script>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQa96xLiqVS7eYt7p7pSm9G0gS4Tj7Qk81f5N+8/8/6l1p8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                <div class="flex items-center space-x-2 nav-brand-logo-container">
-                    <a href="{{ url_for('home') }}" class="nav-brand" aria-label="Forever Zama Home">Forever Zama 🌸</a>
-                    <div class="logo-wrapper">
-                        <img src="/static/images/logo.png" alt="Forever Living Logo" class="logo-image">
-                    </div>
+    <div class="website-container">
+        <header>
+            <nav class="navbar">
+                <a href="{{ url_for('home') }}" class="logo">
+                    <img src="{{ url_for('static', filename='images/logo-transparent.png') }}" alt="Logo">
+                </a>
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
                 </div>
-                <div class="hidden md:flex space-x-6 nav-links">
-                    <a href="{{ url_for('home') }}" aria-label="Home page">Home 🏠</a>
-                    <a href="{{ url_for('menus') }}" aria-label="Menus page">Menus 📋</a>
-                    <a href="{{ url_for('join') }}" aria-label="Join page">Join Us 🎉</a>
-                    <a href="{{ url_for('contact') }}" aria-label="Contact page">Contact 📞</a>
-                    <a href="{{ url_for('view_cart') }}" aria-label="View cart">Cart 🛒</a>
-                </div>
-                <button class="md:hidden mobile-menu-button" onclick="toggleMenu()" aria-label="Toggle mobile menu">☰</button>
-            </div>
-            <div id="mobile-menu" class="hidden md:hidden mobile-nav-menu">
-                <a href="{{ url_for('home') }}" class="block px-4 py-2" aria-label="Home page">Home 🏠</a>
-                <a href="{{ url_for('menus') }}" class="block px-4 py-2" aria-label="Menus page">Menus 📋</a>
-                <a href="{{ url_for('join') }}" class="block px-4 py-2" aria-label="Join page">Join Us 🎉</a>
-                <a href="{{ url_for('contact') }}" class="block px-4 py-2" aria-label="Contact page">Contact 📞</a>
-                <a href="{{ url_for('view_cart') }}" class="block px-4 py-2" aria-label="View cart">Cart 🛒</a>
-            </div>
-        </nav>
-    </header>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Shop ▾</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('health_wellness') }}">Health & Wellness</a>
+                            <a href="{{ url_for('skincare_personal_care') }}">Skincare & Personal Care</a>
+                            <a href="{{ url_for('weight_management') }}">Weight Management</a>
+                            <a href="{{ url_for('kids_family') }}">Kids & Family</a>
+                        </div>
+                    </li>
+                    <li><a href="{{ url_for('combos') }}">Combos</a></li>
+                    <li><a href="{{ url_for('join') }}">Join Our Team</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                    <li class="cart-icon">
+                        <a href="{{ url_for('cart') }}">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge">{{ session.cart|length }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-    <main>{% block content %}{% endblock %}</main>
-
-    <footer>
-        <div class="container mx-auto px-4 py-4 text-center">
-            <a href="https://www.facebook.com/share/1Ho3zMbjY8/" target="_blank" class="social-button" aria-label="Follow us on Facebook">Follow us on Facebook 📘</a>
-            <p class="mt-2">© 2025 Forever Zama. All rights reserved. 🌟</p>
+        <main class="content-container">
+            {% block content %}{% endblock %}
+        </main>
+        
+        <div class="adsterra-banner-container">
+            <script type="text/javascript">
+            	atOptions = {
+            		'key' : '7c067876e1b0da8429ac122b8c4d2259',
+            		'format' : 'iframe',
+            		'height' : 50,
+            		'width' : 320,
+            		'params' : {}
+            	};
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/7c067876e1b0da8429ac122b8c4d2259/invoke.js"></script>
         </div>
-    </footer>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section contact-info">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> forever.zama@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +27 71 850 6358</p>
+                </div>
+                <div class="footer-section social-media">
+                    <h4>Follow Us</h4>
+                    <a href="https://www.facebook.com/mduduzi.nyama.35" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/zama_fom_forever/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Forever Zama. All Rights Reserved.
+            </div>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
- 
